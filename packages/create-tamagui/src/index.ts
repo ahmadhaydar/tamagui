@@ -161,9 +161,10 @@ ${chalk.bold(chalk.red(`Please pick a different project name 🥸`))}`
     const home = homedir()
     const tamaguiDir = join(home, '.tamagui')
     const repoRoot = join(__dirname, '..', '..', '..')
-    const targetGitDir = IS_TEST
+    const targetGitDirUnquoted = IS_TEST
       ? join(tamaguiDir, 'tamagui-test')
       : join(tamaguiDir, 'tamagui')
+    const targetGitDir = `"${targetGitDirUnquoted}"`
 
     async function setupTamaguiDotDir(isRetry = false) {
       console.log(`Setting up ${chalk.blueBright(tamaguiDir)}...`)
